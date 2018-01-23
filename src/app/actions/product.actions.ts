@@ -2,7 +2,7 @@ import { Action } from "@ngrx/store";
 import { Product } from "../models/product";
 
 export const SHOW_ALL = '[PRODUCT] Show All';
-export const SHOW_ALL_SUCCESS = "[PRODUCT] Show All Success";
+export const SHOW_ALL_SUCCESS = '[PRODUCT] Show All Success';
 export const CREATE = '[PRODUCT] Create';
 export const CREATE_SUCCESS = '[PRODUCT] Create Success';
 export const CREATE_FAILURE = '[PRODUCT] Create Failure';
@@ -23,7 +23,7 @@ export class CreateAction implements Action {
 }
 export class CreateSuccessAction implements Action {
   readonly type = CREATE_SUCCESS;
-  constructor(public payload: Product[]) {}
+  constructor(public payload: Product) {}
 }
 export class CreateFailureAction implements Action {
   readonly type = CREATE_FAILURE;
