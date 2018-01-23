@@ -4,7 +4,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { AppComponent } from './app.component';
-
+import { ProductService } from "./services/product.service";
+import { reducers, metaReducers } from "./reducers/reducers";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers })
   ],
-  providers: [],
+  providers: [ ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
