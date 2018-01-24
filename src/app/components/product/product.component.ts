@@ -9,13 +9,13 @@ import { Product } from "../../models/product";
 
 @Component({
   selector: "app-product",
-  templateUrl: "./product.component.html",
-  styleUrls: ["./product.component.css"]
+  templateUrl: "./product.component.html"
+  
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   product$: Observable<Product[]>;
   message$: Observable<any>;
-  task: "";
+  task= '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit {
     }
   }
   createProductView() {
-    this.task = "create";
+    this.task = 'create';
     this.store.dispatch(new fromActions.ResetAction());
   }
   getProductByIdView() {

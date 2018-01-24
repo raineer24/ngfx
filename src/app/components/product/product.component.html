@@ -1,3 +1,43 @@
-<p>
-  product works!
-</p>
+<button (click)="LoadAllProducts()">Show All Products</button>
+<button (click)="createProductView()">Create Product</button>
+<button (click)="getProductByIdView()">Search Product By Id</button>
+
+<div [ngSwitch]="task">
+  <ng-template [ngSwitchCase]="'all'">
+    <ul>
+      <li *ngFor="let product of products$ | async">
+          {{product.id}} - {{product.title}} - {{product.category}}
+      </li>
+    </ul>
+  </ng-template>
+ 
+  <ng-template [ngSwitchCase]= "'create'">
+      <p><b>{{messages | async }}</b></p>
+      <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+        <p> Enter New Id: <input formControlName="id">
+          <label *ngIf="id.errors?.required && !productForm.pristine" style="color: red">
+                Enter Product Id
+          </label>
+        </p>
+        <p>Enter Product: <input formControlName="title"></p>
+        <p>Enter Product: <input formControlName="title"></p>
+        <p><button>Submit</button></p>
+      </form>
+      <ul>
+        <li *ngFor="let product of products$ | async">
+           {{product.id}} - {{product.title}} - {{product.category}}
+        </li>
+      </ul>
+  </ng-template>
+  
+  <ng-template [ngSwitchCase]= "'get'">
+    <p>Enter Id: <input [(ngModel]="productId") (input)="searchProductById(productId)"></p>
+    <ul>
+      <li *ngFor="let product of products$ | async">
+           {{article.id}} - {{article.title}} - {{article.category}}
+      </li>
+    </ul>
+  
+  </ng-template>
+  <ng-template ngSwitchDefault><br/><b>Select Task</b></ng-template>
+</div>
