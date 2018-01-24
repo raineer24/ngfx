@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
@@ -25,9 +25,9 @@ export class ProductComponent {
     this.message$ = store.select(fromReducer.getMessage);
   }
   productForm = this.formBuilder.group({
-    id: ["", Validators.required],
-    title: "",
-    category: ""
+    id: ['', Validators.required],
+    title: '',
+    category: ''
   });
 
   get id() {
@@ -45,11 +45,11 @@ export class ProductComponent {
     this.store.dispatch(new fromActions.ResetAction());
   }
   getProductByIdView() {
-    this.task = "get";
+    this.task = 'get';
     this.store.dispatch(new fromActions.ResetAction());
   }
   loadAllProducts() {
-    this.task = "all";
+    this.task = 'all';
     this.store.dispatch(new fromActions.ShowAllAction());
   }
   createProduct(product: Product) {

@@ -1,4 +1,4 @@
-<button (click)="LoadAllProducts()">Show All Products</button>
+<button (click)="loadAllProducts()">Show All Products</button>
 <button (click)="createProductView()">Create Product</button>
 <button (click)="getProductByIdView()">Search Product By Id</button>
 
@@ -31,7 +31,7 @@
   </ng-template>
   
   <ng-template [ngSwitchCase]= "'get'">
-    <p>Enter Id: <input [(ngModel])="productId" (input)="searchProductById(productId)"></p>
+    <p>Enter Id: <input [(ngModel)]="productId" (input)="searchProductById(productId)"></p>
     <ul>
       <li *ngFor="let product of products$ | async">
            {{article.id}} - {{article.title}} - {{article.category}}

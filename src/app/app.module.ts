@@ -9,6 +9,9 @@ import { reducers, metaReducers } from "./reducers/reducers";
 import { ProductComponent } from './components/product/product.component';
 import { EffectsModule } from "@ngrx/effects";
 import { ProductEffects } from "./effects/product.effects";
+
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+import { TestData } from "./test-data";
 @NgModule({
   declarations: [AppComponent, ProductComponent],
   imports: [
@@ -17,7 +20,8 @@ import { ProductEffects } from "./effects/product.effects";
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([ProductEffects])
+    EffectsModule.forRoot([ProductEffects]),
+    InMemoryWebApiModule.forRoot(TestData)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
