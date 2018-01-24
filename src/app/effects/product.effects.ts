@@ -28,7 +28,7 @@ export class ProductEffects {
     );
 
     @Effect()
-    createProduct$: Observable<Action> this.actions$
+    createProduct$: Observable<Action> = this.actions$
         .ofType<fromActions.CreateAction>(fromActions.CREATE)
         .map(action => action.payload)
         .mergeMap(product =>

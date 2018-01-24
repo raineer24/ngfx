@@ -11,7 +11,7 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
       return { products: action.payload, message: 'Success' };
     }
     case fromActions.CREATE_SUCCESS: {
-      return { products: [action.payload], message: "Article Created." };
+      return { products: [action.payload], message: "Product Created." };
     }
     case fromActions.CREATE_FAILURE: {
       return {products: [], message: action.payload};

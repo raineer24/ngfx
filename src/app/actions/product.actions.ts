@@ -19,7 +19,7 @@ export class ShowAllSuccessAction implements Action {
 }
 export class CreateAction implements Action {
   readonly type = CREATE;
-  constructor(public payload: Product[]) {}
+  constructor(public payload: Product) {}
 }
 export class CreateSuccessAction implements Action {
   readonly type = CREATE_SUCCESS;
@@ -31,7 +31,7 @@ export class CreateFailureAction implements Action {
 }
 export class GetByIdAction implements Action {
   readonly type = GET_BY_ID;
-  constructor(public payload: Product[]) {}
+  constructor(public payload: string) {}
 }
 export class GetByIdSuccessAction implements Action {
   readonly type = GET_BY_ID_SUCCESS;

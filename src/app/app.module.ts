@@ -6,17 +6,20 @@ import { StoreModule } from "@ngrx/store";
 import { AppComponent } from './app.component';
 import { ProductService } from "./services/product.service";
 import { reducers, metaReducers } from "./reducers/reducers";
-
+import { ProductComponent } from './components/product/product.component';
+import { EffectsModule } from "@ngrx/effects";
+import { ProductEffects } from "./effects/product.effects";
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([ProductEffects])
   ],
-  providers: [ ProductService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

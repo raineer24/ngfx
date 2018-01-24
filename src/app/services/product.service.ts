@@ -7,7 +7,7 @@ import { Product } from "../models/product";
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  url = "/api/aticles";
+  url = "/api/products";
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
   }
