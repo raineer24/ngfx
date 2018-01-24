@@ -28,6 +28,16 @@ export class ProductEffects {
     );
 
     @Effect()
+    createProduct$: Observable<Action> this.actions$
+        .ofType<fromActions.CreateAction>(fromActions.CREATE)
+        .map(action => action.payload)
+        .mergeMap(product =>
+            this.productService.createProduct(product)
+            .map(res => new fromActions.CreateSuccessAction(res))
+            .catch(error => of(new fromActions.CreateFailureAction(error)))
+        );
+
+    @Effect()
     searchProductById$: Observable<Action> = this.actions$
         .ofType<fromActions.GetByIdAction>(fromActions.GET_BY_ID)
         .debounceTime(500)
