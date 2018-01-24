@@ -20,7 +20,7 @@
           </label>
         </p>
         <p>Enter Product: <input formControlName="title"></p>
-        <p>Enter Product: <input formControlName="title"></p>
+        <p>Enter Category: <input formControlName="category"></p>
         <p><button>Submit</button></p>
       </form>
       <ul>
@@ -31,7 +31,7 @@
   </ng-template>
   
   <ng-template [ngSwitchCase]= "'get'">
-    <p>Enter Id: <input [(ngModel]="productId") (input)="searchProductById(productId)"></p>
+    <p>Enter Id: <input [(ngModel])="productId" (input)="searchProductById(productId)"></p>
     <ul>
       <li *ngFor="let product of products$ | async">
            {{article.id}} - {{article.title}} - {{article.category}}
